@@ -22,7 +22,7 @@ route = APIRouter(prefix="/house", tags=["Дома"])
 homes = [
     {"id" : 1, "city" : "Донецк" ,"street" : "Прожекторная", "number" : 8},
     {"id" : 2, "city" : "Макеевка" ,"street" : "Щетинина", "number" : 3},
-    {"id" : 3, "city" : "Торез" ,"street" : "Совхозная", "number" : 33},
+    {"id" : 3, "city" : "Торез" ,"street" : "Мурманская", "number" : 19},
     {"id" : 4, "city" : "Зугрес" ,"street" : "Победы", "number" : 2},
     {"id" : 5, "city" : "Амросиевка" ,"street" : "Ватутина", "number" : 1},
     {"id" : 6, "city" : "Снежное" ,"street" : "Кокинаки", "number" : 18},
