@@ -13,8 +13,8 @@ class HomePATCH(BaseModel):
     number : int | None = None
 
 class HomePagination(BaseModel):
-    page : int 
-    per_page : int
+    page : int | None = None
+    per_page : | None = None
 
 route = APIRouter(prefix="/house", tags=["Дома"])
 
@@ -40,9 +40,21 @@ homes = [
 
 @route.get("/h",summary="Вывод по страницам")
 async def get_page_homes(home_data : HomePagination = Depends()):
-        start = (home_data.per_page * home_data.page) - home_data.per_page
-        end = start + home_data.per_page
-        return homes[start:end ]
+        if home_data.page != None and home_data.per_page != None:
+            start = (home_data.per_page * home_data.page) - home_data.per_page
+            end = start + home_data.per_page
+            return homes[start:end ]
+        elif home_data.page != None and home_data.per_page == None:
+            start = (3 * home_data.page) - 3
+            end = start + 3
+            return homes[start:end ]
+        elif home_data.page == None and home_data.per_page != None:
+            start = (home_data.per_page * 1) - home_data.per_page
+            end = start + home_data.per_page
+            return homes[start:end ]
+        elif home_data.page == None and home_data.per_page == None:
+            return homes[0:3]
+
 
 
 
